@@ -1,0 +1,25 @@
+<!-- html/logout.html -->
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: login.html");
+    exit();
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Logout - BMI PHP App</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <?php include '../includes/header.php'; ?>
+    <h2>Logout</h2>
+    <form action="../scripts/logout.php" method="POST">
+        <p>Are you sure you want to logout?</p>
+        <input type="submit" value="Logout">
+    </form>
+    <?php include '../includes/footer.php'; ?>
+</body>
+</html>

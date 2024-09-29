@@ -1,0 +1,30 @@
+<!-- html/login.html -->
+<?php
+session_start();
+if (isset($_SESSION['username'])) {
+    header("Location: ../dashboard.php");
+    exit();
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - BMI PHP App</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <?php include '../includes/header.php'; ?>
+    <h2>Login</h2>
+    <form action="../scripts/login.php" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+ 
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+ 
+        <input type="submit" value="Login">
+    </form>
+    <?php include '../includes/footer.php'; ?>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!-- html/bmi_calculator.html -->
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: login.html");
+    exit();
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMI Calculator - BMI PHP App</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <?php include '../includes/header.php'; ?>
+    <h2>BMI Calculator</h2>
+    <form action="../scripts/bmi_calculate.php" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+ 
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" min="0" required>
+ 
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="">--Select--</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
+ 
+        <label for="height">Height (in cm):</label>
+        <input type="number" id="height" name="height" step="0.1" min="0" required>
+ 
+        <label for="weight">Weight (in kg):</label>
+        <input type="number" id="weight" name="weight" step="0.1" min="0" required>
+ 
+        <input type="submit" value="Calculate BMI">
+    </form>
+    <?php include '../includes/footer.php'; ?>
+</body>
+</html>
